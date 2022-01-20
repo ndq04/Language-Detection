@@ -34,27 +34,27 @@ y_pred = nb_model.predict(X_test)
 print(accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 
-image_file  = 'data/Nhat2.png'
+# image_file  = 'data/Nhat2.png'
 
-reader = easyocr.Reader(['en','ko'])
-reader = easyocr.Reader(['en','vi'])
-reader = easyocr.Reader(['en','ja'])
-reader = easyocr.Reader(['en','th'])
-reader = easyocr.Reader(['en','ch_sim'])
+# reader = easyocr.Reader(['en','ko'])
+# reader = easyocr.Reader(['en','vi'])
+# reader = easyocr.Reader(['en','ja'])
+# reader = easyocr.Reader(['en','th'])
+# reader = easyocr.Reader(['en','ch_sim'])
 
-results = reader.readtext(image_file)
+# results = reader.readtext(image_file)
 
-text = ''
-for result in results:
-  text += result[1] + ''
-print(text)
+# text = ''
+# for result in results:
+#   text += result[1] + ''
+# print(text)
 
-dataset = cv.transform([text]).toarray()
-output = nb_model.predict(dataset)
-print(output[0])
-
-# user = input("Enter a Text: ")
-# dataset = cv.transform([user]).toarray()
+# dataset = cv.transform([text]).toarray()
 # output = nb_model.predict(dataset)
 # print(output[0])
+
+user = input("Enter a Text: ")
+dataset = cv.transform([user]).toarray()
+output = nb_model.predict(dataset)
+print(output[0])
 
